@@ -11,10 +11,8 @@ public class Color {
 
     @Override
     public String toString() {
-        return "Color{" +
-                "color=" + color +
-                ", isHidden=" + isHidden +
-                ", position=" + position +
-                '}';
+        return "{"+ color +
+                ", " + isHidden +
+                ", " + position + "}";
     }
 }
