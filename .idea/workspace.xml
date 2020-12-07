@@ -86,10 +86,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="61" key="#com.intellij.ide.util.MemberChooser" timestamp="1607335529016">
+    <state x="446" y="61" key="#com.intellij.ide.util.MemberChooser" timestamp="1607335731733">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="446" y="61" key="#com.intellij.ide.util.MemberChooser/0.0.1280.689@0.0.1280.689" timestamp="1607335529016" />
+    <state x="446" y="61" key="#com.intellij.ide.util.MemberChooser/0.0.1280.689@0.0.1280.689" timestamp="1607335731733" />
     <state x="348" y="86" key="FileChooserDialogImpl" timestamp="1607334923685">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
@@ -110,9 +110,9 @@
       <screen x="0" y="0" width="1280" height="689" />
     </state>
     <state width="1237" height="166" key="GridCell.Tab.0.right/0.0.1280.689@0.0.1280.689" timestamp="1607332552815" />
-    <state x="121" y="0" key="SettingsEditor" timestamp="1607332652665">
+    <state x="121" y="0" key="SettingsEditor" timestamp="1607335622156">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1607332652665" />
+    <state x="121" y="0" key="SettingsEditor/0.0.1280.689@0.0.1280.689" timestamp="1607335622156" />
   </component>
 </project>
