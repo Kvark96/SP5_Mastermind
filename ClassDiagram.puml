@@ -1,0 +1,48 @@
+@startuml
+class Player{
+    selectedColors : Color[]
+    select()
+}
+
+class AI{
+    solution : Color[]
+    generateSolution()
+}
+
+class Color{
+    color
+    isHidden
+    Position
+}
+
+class System{
+    run()
+}
+
+class Guess{
+    id : int
+    choices : Color[]
+    checkArr : int[]
+        /'
+        0 = forkert plads, forkert farve
+        1 = rigtig farve, forkert plads
+        2 = rigtig farve, rigtig plads
+        '/
+
+    compare() : Guess
+    display()
+}
+
+class UI{
+    grid : Guess[]
+}
+UI -- Guess
+Guess -- Color
+System -- Player
+System -- AI
+System -- UI
+Player -- Guess
+AI -- Guess
+
+
+@enduml
