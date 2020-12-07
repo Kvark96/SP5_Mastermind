@@ -11,6 +11,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="UML Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -85,10 +86,14 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="348" y="86" key="FileChooserDialogImpl" timestamp="1607332479436">
+    <state x="446" y="61" key="#com.intellij.ide.util.MemberChooser" timestamp="1607335529016">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
-    <state x="348" y="86" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1607332479436" />
+    <state x="446" y="61" key="#com.intellij.ide.util.MemberChooser/0.0.1280.689@0.0.1280.689" timestamp="1607335529016" />
+    <state x="348" y="86" key="FileChooserDialogImpl" timestamp="1607334923685">
+      <screen x="0" y="0" width="1280" height="689" />
+    </state>
+    <state x="348" y="86" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1607334923685" />
     <state width="1237" height="166" key="GridCell.Tab.0.bottom" timestamp="1607332552815">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
