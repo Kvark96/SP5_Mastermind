@@ -8,4 +8,13 @@ public class Color {
         this.isHidden = isHidden;
         this.position = position;
     }
+
+    @Override
+    public String toString() {
+        return "Color{" +
+                "color=" + color +
+                ", isHidden=" + isHidden +
+                ", position=" + position +
+                '}';
+    }
 }
