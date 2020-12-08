@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a9f8f144-285b-419e-8610-5ab7874c8428" name="Default Changelist" comment="" />
+    <list default="true" id="a9f8f144-285b-419e-8610-5ab7874c8428" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +48,7 @@
     <property name="DefaultPlantUmlFileTemplate" value="UML Class" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/core.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SP3_Mario" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -104,17 +107,28 @@
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="446" y="61" key="#com.intellij.ide.util.MemberChooser" timestamp="1607338091466">
-      <screen x="0" y="0" width="1280" height="689" />
+    <state x="669" y="92" key="#com.intellij.ide.util.MemberChooser" timestamp="1607415844726">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="446" y="61" key="#com.intellij.ide.util.MemberChooser/0.0.1280.689@0.0.1280.689" timestamp="1607338091466" />
-    <state x="348" y="86" key="FileChooserDialogImpl" timestamp="1607334923685">
-      <screen x="0" y="0" width="1280" height="689" />
+    <state x="669" y="92" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607415844726" />
+    <state x="522" y="130" key="FileChooserDialogImpl" timestamp="1607415769163">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="348" y="86" key="FileChooserDialogImpl/0.0.1280.689@0.0.1280.689" timestamp="1607334923685" />
+    <state x="522" y="130" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1607415769163" />
     <state width="1237" height="166" key="GridCell.Tab.0.bottom" timestamp="1607338280090">
       <screen x="0" y="0" width="1280" height="689" />
     </state>
