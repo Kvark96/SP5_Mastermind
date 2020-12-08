@@ -1,11 +1,10 @@
-public class Color {
+public class Color{
     int color;
     boolean isHidden;
     int position; // 0 .. 3
 
-    public Color(int color, boolean isHidden, int position) {
+    public Color(int color, int position) {
         this.color = color;
-        this.isHidden = isHidden;
         this.position = position;
     }
 

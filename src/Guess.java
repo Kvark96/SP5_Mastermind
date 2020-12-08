@@ -12,10 +12,20 @@ public class Guess {
     public Guess(ArrayList<Color> colors) {
         id = ++numberOfGuesses;
         this.colors = colors;
+        checkArr = new int[4];
     }
 
-    public int[] compare(Guess guess){
-        return guess.checkArr;
+    public void compare(Guess guess){
+        for(int i = 0; i < colors.size(); i++){
+            if (colors.get(i) == guess.getColors().get(i)){
+                checkArr[i] = 2;
+            } else if(guess.getColors().contains(colors.get(i)))
+            {
+                checkArr[i] = 1;
+            } else {
+                checkArr[i] = 0;
+            }
+        }
     }
 
     public void display(){

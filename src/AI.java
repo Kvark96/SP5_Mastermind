@@ -1,32 +1,31 @@
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class AI {
-    ArrayList<Color> availableColors;
+    int[] availableColors;
 
 
 
-    public AI(ArrayList<Color> availableColors) {
+    public AI(int[] availableColors) {
         this.availableColors = availableColors;
 
     }
 
 
 
-    public ArrayList<Color> createSoloutions(){
-        int rnd;
-        ArrayList<Color> soloutionArray = new ArrayList<Color>();
-        for(int i = 0; i < soloutionArray.size() ; i++){
-            soloutionArray.add(availableColors.get(pickRandomColorFromColorList()));
+    public Guess createSolutions(){
+        ArrayList<Color> solutionArray = new ArrayList<>();
+        for(int i = 0; i < 4; i++){
+            solutionArray.add(new Color(availableColors[(pickRandomColorFromColorList())], i));
         }
-        return soloutionArray;
+
+        return new Guess(solutionArray);
     }
 
     public int pickRandomColorFromColorList(){
         int index;
         Random rand = new Random();
-        index = rand.nextInt(availableColors.size());
+        index = rand.nextInt(availableColors.length);
         return index;
     }
 }

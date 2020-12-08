@@ -16,4 +16,12 @@ public class Player {
     public Guess guess(){
         return new Guess(selectedColors);
     }
+
+    public void mousePressed() {
+        System.out.println("Mouse pressed");
+    }
+
+    public void mouseReleased() {
+        System.out.println("Mouse released");
+    }
 }
