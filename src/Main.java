@@ -96,15 +96,28 @@ public class Main extends PApplet{
             }
             for(int j : ui.grid.get(i).getCheckArr()){
                 if(j == 0){
-                    fill(255,0, 0);
-                    circle(60, 60, 60);
+                    // rect(width - 75, 25, 50,height-100);
+                    fill(255, 0, 0);
+
                 } else if(j == 1){
-                    fill(190);
-                    circle(90, 90, 60);
+                    // rect(width - 75, 25, 50,height-100);
                 } else {
-                    fill(10);
-                    circle(30, 30, 60);
+                    // rect(width - 75, 25, 50,height-100);
                 }
+
+                int w = 50;
+                noFill();
+                int rectX = width - 75 - w/2;
+                int rectY = height - 100 - w/2;
+                rect(rectX, rectY, w, w);
+
+                for(int x = 1; x < 3; x++){
+                    for(int y = 1; y < 3; y++){
+                        int size = (w / 3) / 2;
+                        circle(rectX + (w / 3) * x, rectY + (w / 3) * y, size);
+                    }
+                }
+
             }
         }
     }
