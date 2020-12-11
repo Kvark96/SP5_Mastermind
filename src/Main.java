@@ -34,9 +34,9 @@ public class Main extends PApplet{
         player.select(new Color(2, 3));
         player.select(new Color(3, 4));
 
-        ui.addGuess(player.guess());
-        ui.addGuess(player.guess());
-        ui.addGuess(player.guess());
+        for(int i = 0; i < 10; i++){
+            ui.addGuess(player.guess());
+        }
 
         AI ai = new AI(colors);
         Guess solution = ai.createSolutions();
@@ -48,19 +48,19 @@ public class Main extends PApplet{
 
     public void draw(){
         background(50);
-        //translate(scale, scale);
 
         ui.draw();
         displayBG();
         displayButtons();
-        displayGuesses();
+        for(int i = 0; i < ui.grid.size(); i++){
+            displayGuesses(ui.grid.get(i), i);
+        }
     }
 
     public void displayBG(){
         noFill();
         stroke(130);
         strokeWeight(3);
-        translate(0,0);
         // Big box
         rect(25, 25, width - 100, height - 100);
         // Bottom box
@@ -73,51 +73,40 @@ public class Main extends PApplet{
     }
 
     public void displayButtons(){
-        translate(25, height-75);
-
         for(int i = 0; i < colors.length; i++){
             fill(colors[i]);
-            circle(25 + i * 50, 25, 25);
+            circle(50 + i * 50, height - 50, 25);
         }
     }
 
-    public void displayGuesses(){
-        translate(0 ,-(height-100));
-        for(int i = 0; i < ui.grid.size(); i++){
-            noFill();
-            stroke(130);
-            strokeWeight(2);
-            rect(5, 5 + i * 60, width - 110, 50);
+    public void displayGuesses(Guess guess, int pos){
+        // Box = rect(25, 25, width - 100, height - 100);
+        noFill();
+        strokeWeight(2);
+        stroke(130);
+        int h = 50;
+        rect( 25, 25 + (h * pos), width - 100, h );
 
-            for(Color c : ui.grid.get(i).getColors()){
-                fill(colors[c.color]);
-                noStroke();
-                circle(c.position * 60, 30 + i * 60, 25);
+        for(Color c : guess.getColors()){
+            fill(colors[c.color]);
+            noStroke();
+            circle(c.position * 70, 50 + pos * h, 25);
+        }
+
+        for(int i = 0; i < guess.getCheckArr().length; i++){
+            switch (guess.getCheckArr()[i]) {
+            // Right color, right pos
+                case 0 -> fill(0, 255, 0);
+            // Right color, wrong pos
+                case 1 -> fill(0, 0, 255);
+            // All wrong
+                case 2 -> fill(255, 0, 0);
             }
-            for(int j : ui.grid.get(i).getCheckArr()){
-                if(j == 0){
-                    // rect(width - 75, 25, 50,height-100);
-                    fill(255, 0, 0);
-
-                } else if(j == 1){
-                    // rect(width - 75, 25, 50,height-100);
-                } else {
-                    // rect(width - 75, 25, 50,height-100);
-                }
-
-                int w = 50;
-                noFill();
-                int rectX = width - 75 - w/2;
-                int rectY = height - 100 - w/2;
-                rect(rectX, rectY, w, w);
-
-                for(int x = 1; x < 3; x++){
-                    for(int y = 1; y < 3; y++){
-                        int size = (w / 3) / 2;
-                        circle(rectX + (w / 3) * x, rectY + (w / 3) * y, size);
-                    }
-                }
-
+            // rect(width - 75, 25, 50,height-100);
+            if(i < 2){
+                rect(width - 70 + i * 22, 30, 20, 20);
+            } else {
+                rect(width - 114 + i * 22, 52, 20, 20);
             }
         }
     }
