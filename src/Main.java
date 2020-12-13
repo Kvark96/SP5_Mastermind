@@ -29,10 +29,10 @@ public class Main extends PApplet{
         };
 
         Player player = new Player();
-        player.select(new Color(0, 1));
-        player.select(new Color(1, 2));
-        player.select(new Color(2, 3));
-        player.select(new Color(3, 4));
+        player.select(new Color(colors[0], 0));
+        player.select(new Color(colors[1], 1));
+        player.select(new Color(colors[2], 2));
+        player.select(new Color(colors[3], 3));
 
         for(int i = 0; i < 10; i++){
             ui.addGuess(player.guess());
@@ -81,6 +81,7 @@ public class Main extends PApplet{
 
     public void displayGuesses(Guess guess, int pos){
         // Box = rect(25, 25, width - 100, height - 100);
+
         noFill();
         strokeWeight(2);
         stroke(130);
@@ -88,11 +89,12 @@ public class Main extends PApplet{
         rect( 25, 25 + (h * pos), width - 100, h );
 
         for(Color c : guess.getColors()){
-            fill(colors[c.color]);
+            fill(c.color);
             noStroke();
-            circle(c.position * 70, 50 + pos * h, 25);
+            circle((c.position + 1) * 70, 50 + pos * h, 25);
         }
 
+        noFill();
         for(int i = 0; i < guess.getCheckArr().length; i++){
             switch (guess.getCheckArr()[i]) {
             // Right color, right pos
@@ -103,6 +105,7 @@ public class Main extends PApplet{
                 case 2 -> fill(255, 0, 0);
             }
             // rect(width - 75, 25, 50,height-100);
+
             if(i < 2){
                 rect(width - 70 + i * 22, 30, 20, 20);
             } else {

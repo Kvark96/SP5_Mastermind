@@ -4,9 +4,10 @@
 import java.util.ArrayList;
 
 public class Player {
-    private ArrayList<Color> selectedColors = new ArrayList<>();
+    private ArrayList<Color> selectedColors;
 
     public Player() {
+        selectedColors = new ArrayList<>();
     }
 
     public void select(Color col){
