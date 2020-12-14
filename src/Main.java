@@ -1,7 +1,5 @@
 import processing.core.PApplet;
 
-import java.util.ArrayList;
-
 public class Main extends PApplet{
 
     int[] colors;
@@ -29,10 +27,10 @@ public class Main extends PApplet{
         };
 
         Player player = new Player();
-        player.select(new Color(colors[0], 0));
-        player.select(new Color(colors[1], 1));
-        player.select(new Color(colors[2], 2));
-        player.select(new Color(colors[3], 3));
+        player.select(colors[0]);
+        player.select(colors[1]);
+        player.select(colors[2]);
+        player.select(colors[3]);
 
         for(int i = 0; i < 10; i++){
             ui.addGuess(player.guess());
@@ -53,7 +51,7 @@ public class Main extends PApplet{
         displayBG();
         displayButtons();
         for(int i = 0; i < ui.grid.size(); i++){
-            displayGuesses(ui.grid.get(i), i);
+            displayGuess(ui.grid.get(i), i);
         }
     }
 
@@ -79,7 +77,7 @@ public class Main extends PApplet{
         }
     }
 
-    public void displayGuesses(Guess guess, int pos){
+    public void displayGuess(Guess guess, int pos){
         // Box = rect(25, 25, width - 100, height - 100);
 
         noFill();
@@ -88,10 +86,10 @@ public class Main extends PApplet{
         int h = 50;
         rect( 25, 25 + (h * pos), width - 100, h );
 
-        for(Color c : guess.getColors()){
-            fill(c.color);
+        for(int i = 0; i < guess.getColors().size(); i++){
+            fill(guess.getColors().get(i));
             noStroke();
-            circle((c.position + 1) * 70, 50 + pos * h, 25);
+            circle((i + 1) * 70, 50 + pos * h, 25);
         }
 
         noFill();

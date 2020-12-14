@@ -7,10 +7,10 @@ import java.util.Arrays;
 public class Guess {
     private static int numberOfGuesses = 0;
     private final int id;
-    private ArrayList<Color> colors;
+    private ArrayList<Integer> colors;
     private int[] checkArr;
 
-    public Guess(ArrayList<Color> colors) {
+    public Guess(ArrayList<Integer> colors) {
         id = ++numberOfGuesses;
         this.colors = colors;
         checkArr = new int[4];
@@ -23,6 +23,9 @@ public class Guess {
         System.out.println("The answer is:");
         System.out.println(guess.getColors());
         for(int i = 0; i < colors.size(); i++){
+            System.out.println("Checking: " + colors.get(i) + " against " + guess.getColors().get(i));
+            System.out.println(" which is " + (colors.get(i) == guess.getColors().get(i)));
+
             if (colors.get(i) == guess.getColors().get(i)){
                 checkArr[i] = 2;
             } else if(guess.getColors().contains(colors.get(i)))
@@ -45,7 +48,7 @@ public class Guess {
         return id;
     }
 
-    public ArrayList<Color> getColors() {
+    public ArrayList<Integer> getColors() {
         return colors;
     }
 

@@ -4,13 +4,13 @@
 import java.util.ArrayList;
 
 public class Player {
-    private ArrayList<Color> selectedColors;
+    private ArrayList<Integer> selectedColors;
 
     public Player() {
         selectedColors = new ArrayList<>();
     }
 
-    public void select(Color col){
+    public void select(int col){
         selectedColors.add(col);
     }
 
