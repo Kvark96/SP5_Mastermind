@@ -34,11 +34,13 @@ public class Player {
 
                 if (x > minX && x < maxX && y > minY && y < maxY) {
                     select(Main.colors[i]);
+                    Main.currentGuess.add(i);
                 }
             }
         }
 
         if (x < 385 && x > 335 && y < 585 && y > 535 && selectedColors.size() == 4) {
+            Main.currentGuess = new ArrayList<>();
             UI.addGuess(guess());
         }
 

@@ -1,5 +1,7 @@
 import processing.core.PApplet;
 
+import java.util.ArrayList;
+
 public class Main extends PApplet{
 
     static int[] colors;
@@ -7,6 +9,7 @@ public class Main extends PApplet{
     Player player;
     UI ui = new UI();
     static Guess solution;
+    static ArrayList<Integer> currentGuess;
 
     public void settings(){
         size(400, 600);
@@ -14,7 +17,7 @@ public class Main extends PApplet{
 
     public void setup(){
         player = new Player();
-
+        currentGuess = new ArrayList<>();
         scale = 20;
 
         // RED=0, GREEN=1, BLUE=2, YELLOW=3, MAGENTA=4, LIGHTBLUE=5
@@ -53,6 +56,7 @@ public class Main extends PApplet{
         for(int i = 0; i < ui.grid.size(); i++) {
             displayGuess(ui.grid.get(i), i);
         }
+        displayCurrentGuess();
     }
 
     public void displayBG(){
@@ -109,6 +113,19 @@ public class Main extends PApplet{
             } else {
                 rect(width - 114 + i * 22, h + 52, 20, 20);
             }
+        }
+    }
+
+    public void displayCurrentGuess(){
+        // rect(25, height - 75, width - 100, 50);
+        noFill();
+        strokeWeight(2);
+        stroke(130);
+        rect(25, height - 105, width - 100, 30);
+        noStroke();
+        for(int i = 0; i < currentGuess.size(); i++){
+            fill(colors[currentGuess.get(i)]);
+            circle(25 + (i + 1) * 50, height - 90, 20);
         }
     }
 
