@@ -130,12 +130,3 @@ public class Main extends PApplet{
         PApplet.runSketch(processingArgs, mySketch);
     }
 }
-
-/*
-* tobias: Fix antal af gæt så det slutter ved 10
-* tobias: Fix så spillet slutter når man har gættet rigtigt.
-
-* oliver: Fix checkArray så den viser korrekt ift antal af samme farve
-* oliver: Fix så man kan fjerne farver igen // og viser hvilke farver man har valgt
-* JUnit tests (i morgen)
-* */
