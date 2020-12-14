@@ -18,21 +18,21 @@ public class Guess {
     }
 
     public void compare(Guess guess){
-        System.out.println("Our guess is:");
-        System.out.println(this.colors + "\n");
-        System.out.println("The answer is:");
-        System.out.println(guess.getColors());
+//        System.out.println("Our guess is:");
+//        System.out.println(this.colors + "\n");
+//        System.out.println("The answer is:");
+//        System.out.println(guess.getColors());
         for(int i = 0; i < colors.size(); i++){
-            System.out.println("Checking: " + colors.get(i) + " against " + guess.getColors().get(i));
-            System.out.println(" which is " + (colors.get(i) == guess.getColors().get(i)));
+//            System.out.println("Checking: " + colors.get(i) + " against " + guess.getColors().get(i));
+//            System.out.println(" which is " + (colors.get(i).equals(guess.getColors().get(i))));
 
-            if (colors.get(i) == guess.getColors().get(i)){
-                checkArr[i] = 2;
+            if (colors.get(i).equals(guess.getColors().get(i))){
+                checkArr[i] = 0;
             } else if(guess.getColors().contains(colors.get(i)))
             {
                 checkArr[i] = 1;
             } else {
-                checkArr[i] = 0;
+                checkArr[i] = 2;
             }
         }
     }

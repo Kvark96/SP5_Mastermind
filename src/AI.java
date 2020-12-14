@@ -16,7 +16,7 @@ public class AI {
     public Guess createSolutions(){
         ArrayList<Integer> solutionArray = new ArrayList<>();
         for(int i = 0; i < 4; i++){
-            solutionArray.add(availableColors[0]);          //(pickRandomColorFromColorList())], i));
+            solutionArray.add(availableColors[(pickRandomColorFromColorList())]);
         }
 
         return new Guess(solutionArray);

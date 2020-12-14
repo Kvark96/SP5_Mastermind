@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 public class UI{
 
-    ArrayList<Guess> grid;
+    static ArrayList<Guess> grid;
     public UI(){
         grid = new ArrayList<>();
     }
 
     public void draw(){
     }
-    public void addGuess(Guess g){
+    public static void addGuess(Guess g){
         grid.add(g);
     }
 }

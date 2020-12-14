@@ -2,10 +2,11 @@ import processing.core.PApplet;
 
 public class Main extends PApplet{
 
-    int[] colors;
+    static int[] colors;
     int scale;
     Player player;
     UI ui = new UI();
+    static Guess solution;
 
     public void settings(){
         size(400, 600);
@@ -27,19 +28,18 @@ public class Main extends PApplet{
         };
 
         Player player = new Player();
+        /*
         player.select(colors[0]);
         player.select(colors[1]);
-        player.select(colors[2]);
+        player.select(colors[0]);
         player.select(colors[3]);
 
         for(int i = 0; i < 10; i++){
             ui.addGuess(player.guess());
         }
-
+        */
         AI ai = new AI(colors);
-        Guess solution = ai.createSolutions();
-        ui.grid.get(0).compare(solution);
-
+        solution = ai.createSolutions();
         //System.out.println("Guess ID = " + g.getId());
         //System.out.println("Guess colors = " + g.getColors().toString());
     }
@@ -47,10 +47,10 @@ public class Main extends PApplet{
     public void draw(){
         background(50);
 
-        ui.draw();
         displayBG();
         displayButtons();
-        for(int i = 0; i < ui.grid.size(); i++){
+        for(Guess g : UI.grid) g.compare(solution);
+        for(int i = 0; i < ui.grid.size(); i++) {
             displayGuess(ui.grid.get(i), i);
         }
     }
@@ -83,13 +83,13 @@ public class Main extends PApplet{
         noFill();
         strokeWeight(2);
         stroke(130);
-        int h = 50;
-        rect( 25, 25 + (h * pos), width - 100, h );
+        int h = 50 * pos;
+        rect( 25, 25 + h, width - 100, 50 );
 
         for(int i = 0; i < guess.getColors().size(); i++){
             fill(guess.getColors().get(i));
             noStroke();
-            circle((i + 1) * 70, 50 + pos * h, 25);
+            circle((i + 1) * 70, 50 + h, 25);
         }
 
         noFill();
@@ -105,9 +105,9 @@ public class Main extends PApplet{
             // rect(width - 75, 25, 50,height-100);
 
             if(i < 2){
-                rect(width - 70 + i * 22, 30, 20, 20);
+                rect(width - 70 + i * 22, h + 30, 20, 20);
             } else {
-                rect(width - 114 + i * 22, 52, 20, 20);
+                rect(width - 114 + i * 22, h + 52, 20, 20);
             }
         }
     }
@@ -115,13 +115,13 @@ public class Main extends PApplet{
     @Override
     public void mousePressed() {
         super.mousePressed();
-        player.mousePressed();
+        player.mousePressed(mouseX, mouseY);
     }
 
     @Override
     public void mouseReleased() {
         super.mouseReleased();
-        player.mouseReleased();
+        player.mouseReleased(mouseX, mouseY);
     }
 
     public static void main(String[] args) {
