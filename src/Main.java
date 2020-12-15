@@ -100,11 +100,11 @@ public class Main extends PApplet{
         for(int i = 0; i < guess.getCheckArr().length; i++){
             switch (guess.getCheckArr()[i]) {
             // Right color, right pos
-                case 0 -> fill(0, 255, 0);
+                case 2 -> fill(0, 255, 0);
             // Right color, wrong pos
                 case 1 -> fill(0, 0, 255);
             // All wrong
-                case 2 -> fill(255, 0, 0);
+                case 0 -> fill(255, 0, 0);
             }
             // rect(width - 75, 25, 50,height-100);
 
