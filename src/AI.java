@@ -13,7 +13,7 @@ public class AI {
 
 
 
-    public Guess createSolutions(){
+    public Guess createSolution(){
         ArrayList<Integer> solutionArray = new ArrayList<>();
         for(int i = 0; i < 4; i++){
             solutionArray.add(availableColors[(pickRandomColorFromColorList())]);

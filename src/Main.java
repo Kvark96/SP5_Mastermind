@@ -32,7 +32,7 @@ public class Main extends PApplet{
         };
 
         AI ai = new AI(colors);
-        solution = ai.createSolutions();
+        solution = ai.createSolution();
         }
 
     public void draw(){
