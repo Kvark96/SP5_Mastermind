@@ -10,6 +10,7 @@ public class Main extends PApplet{
     UI ui = new UI();
     static Guess solution;
     static ArrayList<Integer> currentGuess;
+    boolean finished = false;
 
     public void settings(){
         size(400, 600);
@@ -48,18 +49,27 @@ public class Main extends PApplet{
     }
 
     public void draw(){
-        background(50);
+        if(finished == false){
+            displayBG();
+            displayButtons();
+            for (Guess g : UI.grid) g.compare(solution);
+            displayCurrentGuess();
+            for (int i = 0; i < ui.grid.size(); i++) {
+                displayGuess(ui.grid.get(i), i);
+                if(i > 8) {
+                    finished = true;
+                    System.out.println("You are out of guesses.\nGame over.");
+                }else if(ui.grid.get(i).getColors().equals(solution.getColors())){
+                    finished = true;
+                    System.out.println("That is correct!\nYou Win!");
+                }
+            }
 
-        displayBG();
-        displayButtons();
-        for(Guess g : UI.grid) g.compare(solution);
-        for(int i = 0; i < ui.grid.size(); i++) {
-            displayGuess(ui.grid.get(i), i);
         }
-        displayCurrentGuess();
     }
 
     public void displayBG(){
+        background(50);
         noFill();
         stroke(130);
         strokeWeight(3);
@@ -135,11 +145,6 @@ public class Main extends PApplet{
         player.mousePressed(mouseX, mouseY);
     }
 
-    @Override
-    public void mouseReleased() {
-        super.mouseReleased();
-        player.mouseReleased(mouseX, mouseY);
-    }
 
     public static void main(String[] args) {
         String[] processingArgs = {"MySketch"};

@@ -10,8 +10,6 @@ public class UI{
         grid = new ArrayList<>();
     }
 
-    public void draw(){
-    }
     public static void addGuess(Guess g){
         grid.add(g);
     }

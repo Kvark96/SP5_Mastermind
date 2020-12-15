@@ -6,16 +6,12 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Guess {
-    private static int numberOfGuesses = 0;
-    private final int id;
     private ArrayList<Integer> colors;
     private int[] checkArr;
 
     public Guess(ArrayList<Integer> colors) {
-        id = ++numberOfGuesses;
         this.colors = colors;
         checkArr = new int[4];
-        //System.out.println(Arrays.toString(checkArr));
     }
 
     public void compare(Guess guess){
@@ -23,7 +19,6 @@ public class Guess {
 
         checkArr = checkExactMatches(colors, answer);
         checkArr = checkPartialMatches(checkArr, colors, answer);
-        //checkArr = shuffleArray(checkArr);
     }
 
     private int[] shuffleArray(int[] arr){
@@ -55,16 +50,6 @@ public class Guess {
         return check;
     }
 
-    public void display(){
-    }
-
-    public static int getNumberOfGuesses() {
-        return numberOfGuesses;
-    }
-
-    public int getId() {
-        return id;
-    }
 
     public ArrayList<Integer> getColors() {
         return colors;

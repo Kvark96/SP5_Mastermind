@@ -22,10 +22,7 @@ public class Player {
     }
 
     public void mousePressed(int x, int y) {
-        System.out.println("Mouse pressed");
-        if (selectedColors.size() >= 4) {
-            System.out.println("You can't have that many colors");
-        } else {
+        if(selectedColors.size() < 4){
             for (int i = 0; i < 6; i++) {
                 int minX = (50 + i * 50) - (25 / 2);
                 int maxX = (50 + i * 50) + (25 / 2);
@@ -39,22 +36,31 @@ public class Player {
             }
         }
 
+
         if (x < 385 && x > 335 && y < 585 && y > 535 && selectedColors.size() == 4) {
             Main.currentGuess = new ArrayList<>();
             UI.addGuess(guess());
         }
 
-        // circle(width - 40, height - 40, 50);
-
 
         /*
-        * for(int i = 0; i < colors.length; i++){
-            fill(colors[i]);
-            circle(50 + i * 50, height - 50, 25);
+        for(int i = 0; i < currentGuess.size(); i++){
+            fill(colors[currentGuess.get(i)]);
+            circle(25 + (i + 1) * 50, height - 90, 20);
         }*/
+
+            for(int i = 0; i < selectedColors.size(); i++){
+                int minX = (25 + (i + 1) * 50) - (20 / 2);
+                int maxX = (25 + (i + 1) * 50) + (20 / 2);
+                int minY = 510 - (20 / 2);
+                int maxY = 510 + (20 / 2);
+
+                if (x > minX && x < maxX && y > minY && y < maxY) {
+                    selectedColors.remove(i);
+                    Main.currentGuess.remove(i);
+                }
+            }
+
     }
 
-    public void mouseReleased(int x, int y) {
-        System.out.println("Mouse released");
-    }
 }
