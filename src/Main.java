@@ -7,10 +7,10 @@ public class Main extends PApplet{
     static int[] colors;
     int scale;
     Player player;
-    UI ui = new UI();
     static Guess solution;
     static ArrayList<Integer> currentGuess;
     boolean finished = false;
+    static ArrayList<Guess> previousGuesses = new ArrayList<>();
 
     public void settings(){
         size(400, 600);
@@ -31,35 +31,22 @@ public class Main extends PApplet{
                 color(0, 255, 255)
         };
 
-        Player player = new Player();
-        /*
-        player.select(colors[0]);
-        player.select(colors[1]);
-        player.select(colors[0]);
-        player.select(colors[3]);
-
-        for(int i = 0; i < 10; i++){
-            ui.addGuess(player.guess());
-        }
-        */
         AI ai = new AI(colors);
         solution = ai.createSolutions();
-        //System.out.println("Guess ID = " + g.getId());
-        //System.out.println("Guess colors = " + g.getColors().toString());
-    }
+        }
 
     public void draw(){
-        if(finished == false){
+        if(!finished){
             displayBG();
             displayButtons();
-            for (Guess g : UI.grid) g.compare(solution);
+            for (Guess g : Main.previousGuesses) g.compare(solution);
             displayCurrentGuess();
-            for (int i = 0; i < ui.grid.size(); i++) {
-                displayGuess(ui.grid.get(i), i);
+            for (int i = 0; i < Main.previousGuesses.size(); i++) {
+                displayGuess(Main.previousGuesses.get(i), i);
                 if(i > 8) {
                     finished = true;
                     System.out.println("You are out of guesses.\nGame over.");
-                }else if(ui.grid.get(i).getColors().equals(solution.getColors())){
+                }else if(Main.previousGuesses.get(i).getColors().equals(solution.getColors())){
                     finished = true;
                     System.out.println("That is correct!\nYou Win!");
                 }
@@ -92,8 +79,6 @@ public class Main extends PApplet{
     }
 
     public void displayGuess(Guess guess, int pos){
-        // Box = rect(25, 25, width - 100, height - 100);
-
         noFill();
         strokeWeight(2);
         stroke(130);
@@ -116,7 +101,6 @@ public class Main extends PApplet{
             // All wrong
                 case 0 -> fill(255, 0, 0);
             }
-            // rect(width - 75, 25, 50,height-100);
 
             if(i < 2){
                 rect(width - 70 + i * 22, h + 30, 20, 20);
@@ -127,7 +111,6 @@ public class Main extends PApplet{
     }
 
     public void displayCurrentGuess(){
-        // rect(25, height - 75, width - 100, 50);
         noFill();
         strokeWeight(2);
         stroke(130);
@@ -152,12 +135,3 @@ public class Main extends PApplet{
         PApplet.runSketch(processingArgs, mySketch);
     }
 }
-
-/*
-* tobias: Fix antal af gæt så det slutter ved 10
-* tobias: Fix så spillet slutter når man har gættet rigtigt.
-
-* oliver: Fix checkArray så den viser korrekt ift antal af samme farve
-* oliver: Fix så man kan fjerne farver igen // og viser hvilke farver man har valgt
-* JUnit tests (i morgen)
-* */

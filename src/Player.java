@@ -39,15 +39,9 @@ public class Player {
 
         if (x < 385 && x > 335 && y < 585 && y > 535 && selectedColors.size() == 4) {
             Main.currentGuess = new ArrayList<>();
-            UI.addGuess(guess());
+            Main.previousGuesses.add(guess());
         }
 
-
-        /*
-        for(int i = 0; i < currentGuess.size(); i++){
-            fill(colors[currentGuess.get(i)]);
-            circle(25 + (i + 1) * 50, height - 90, 20);
-        }*/
 
             for(int i = 0; i < selectedColors.size(); i++){
                 int minX = (25 + (i + 1) * 50) - (20 / 2);
