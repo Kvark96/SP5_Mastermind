@@ -1,4 +1,7 @@
 import processing.core.PApplet;
+import java.util.Arrays;
+import java.util.List;
+import javax.print.attribute.standard.PrinterResolution;
 
 public class Main extends PApplet{
 
@@ -7,6 +10,7 @@ public class Main extends PApplet{
     Player player;
     UI ui = new UI();
     static Guess solution;
+    boolean finished = false;
 
     public void settings(){
         size(400, 600);
@@ -44,18 +48,32 @@ public class Main extends PApplet{
         //System.out.println("Guess colors = " + g.getColors().toString());
     }
 
-    public void draw(){
-        background(50);
 
-        displayBG();
-        displayButtons();
-        for(Guess g : UI.grid) g.compare(solution);
-        for(int i = 0; i < ui.grid.size(); i++) {
-            displayGuess(ui.grid.get(i), i);
+    public void draw(){
+
+
+        if(finished == false){
+            displayBG();
+            displayButtons();
+            for (Guess g : UI.grid) g.compare(solution);
+            for (int i = 0; i < ui.grid.size(); i++) {
+                displayGuess(ui.grid.get(i), i);
+                if(i > 8) {
+                    finished = true;
+                    System.out.println("You are out of guesses.\nGame over.");
+                }else if(ui.grid.get(i).getColors().equals(solution.getColors())){
+                    finished = true;
+                    System.out.println("That is correct!\nYou Win!");
+                }
+            }
+
         }
     }
 
+
+
     public void displayBG(){
+        background(50);
         noFill();
         stroke(130);
         strokeWeight(3);
